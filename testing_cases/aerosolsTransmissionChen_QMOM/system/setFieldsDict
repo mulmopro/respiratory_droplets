@@ -1,0 +1,60 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+defaultFieldValues
+(
+    volScalarFieldValue alpha.gas 1.0
+    volScalarFieldValue alpha.liquid 0.0
+    volScalarFieldValue moment.0.populationBalance 0.0
+    volScalarFieldValue moment.1.populationBalance 0.0
+    volScalarFieldValue moment.2.populationBalance 0.0
+    volScalarFieldValue moment.3.populationBalance 0.0
+    volScalarFieldValue moment.4.populationBalance 0.0
+);
+
+regions
+(
+/*
+    boxToCell
+    {
+        box (1.9 -1 1.9) (2.1 1 2.1);
+        fieldValues
+        (
+        /*
+            volScalarFieldValue alpha.gas 0.9999
+            volScalarFieldValue alpha.liquid 0.0001
+            volScalarFieldValue moment.0.populationBalance 1.909859E+08
+            volScalarFieldValue moment.1.populationBalance 1.909859E+04
+            volScalarFieldValue moment.2.populationBalance 1.909859E+00
+            volScalarFieldValue moment.3.populationBalance 1.909859E-04
+            volScalarFieldValue moment.4.populationBalance 1.909859E-08
+            */
+            /*
+            volScalarFieldValue moment.0.populationBalance 6.403089E+07
+            volScalarFieldValue moment.1.populationBalance 2.789182E+03
+            volScalarFieldValue moment.2.populationBalance 8.323294E-01
+            volScalarFieldValue moment.3.populationBalance 4.430874E-04
+            volScalarFieldValue moment.4.populationBalance 2.884607E-07
+            */
+        );
+    }
+    */
+);
+
+
+
+// ************************************************************************* //

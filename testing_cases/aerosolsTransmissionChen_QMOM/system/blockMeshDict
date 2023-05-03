@@ -1,0 +1,309 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+scale 1;
+
+L0  -0.2;
+L1  0.0;
+L2  0.8;
+L3  1.0;
+
+//W0  -0.2;
+//W1  -0.02;
+W1  0.0; 
+W2  0.02;
+W3  0.2;
+
+H0  0.0;
+H1  0.02;
+H2  0.06;
+H3  0.34;
+H4  0.38;
+H5  0.4;
+
+vertices
+(
+    // surface 0: 4 points
+    /* 
+    ($L0 $W1 $H3)
+    ($L0 $W2 $H3)
+    ($L0 $W1 $H4)
+    ($L0 $W2 $H4)
+    */
+    
+    // surface 1: 24 points
+    //($L1 $W0 $H0)
+    ($L1 $W1 $H0)
+    ($L1 $W2 $H0)
+    ($L1 $W3 $H0)
+    
+    //($L1 $W0 $H1)
+    ($L1 $W1 $H1)
+    ($L1 $W2 $H1)
+    ($L1 $W3 $H1)
+    
+    //($L1 $W0 $H2)
+    ($L1 $W1 $H2)
+    ($L1 $W2 $H2)
+    ($L1 $W3 $H2)
+    
+    //($L1 $W0 $H3)
+    ($L1 $W1 $H3)
+    ($L1 $W2 $H3)
+    ($L1 $W3 $H3)
+    
+    //($L1 $W0 $H4)
+    ($L1 $W1 $H4)
+    ($L1 $W2 $H4)
+    ($L1 $W3 $H4)
+    
+    //($L1 $W0 $H5)
+    ($L1 $W1 $H5)
+    ($L1 $W2 $H5)
+    ($L1 $W3 $H5)
+    
+    // surface 2: 24 points
+    //($L2 $W0 $H0)
+    ($L2 $W1 $H0)
+    ($L2 $W2 $H0)
+    ($L2 $W3 $H0)
+    
+    //($L2 $W0 $H1)
+    ($L2 $W1 $H1)
+    ($L2 $W2 $H1)
+    ($L2 $W3 $H1)
+    
+    //($L2 $W0 $H2)
+    ($L2 $W1 $H2)
+    ($L2 $W2 $H2)
+    ($L2 $W3 $H2)
+    
+    //($L2 $W0 $H3)
+    ($L2 $W1 $H3)
+    ($L2 $W2 $H3)
+    ($L2 $W3 $H3)
+    
+    //($L2 $W0 $H4)
+    ($L2 $W1 $H4)
+    ($L2 $W2 $H4)
+    ($L2 $W3 $H4)
+    
+    //($L2 $W0 $H5)
+    ($L2 $W1 $H5)
+    ($L2 $W2 $H5)
+    ($L2 $W3 $H5)
+    
+    // surface 3: 4 points 
+    /*
+    ($L3 $W1 $H1)
+    ($L3 $W2 $H1)
+    ($L3 $W1 $H2)
+    ($L3 $W2 $H2)
+    */
+    
+    //surface 0: inlet
+    ($L0 $W1 $H3)
+    ($L0 $W2 $H3)
+    ($L0 $W1 $H4)
+    ($L0 $W2 $H4)
+    
+    // surface 3: outlet
+    ($L3 $W1 $H1)
+    ($L3 $W2 $H1)
+    ($L3 $W1 $H2)
+    ($L3 $W2 $H2)
+);
+
+S   100;
+mL0 #calc "0.2*$S";
+mL1 #calc "0.8*$S";
+mL2 #calc "0.2*$S";
+
+//mW0 #calc "0.18*$S";
+mW1 #calc "0.02*$S";
+mW2 #calc "0.18*$S";
+
+mH0 #calc "0.02*$S+1";
+mH1 #calc "0.04*$S";
+mH2 #calc "0.28*$S";
+mH3 #calc "0.04*$S";
+mH4 #calc "0.02*$S+1";
+
+blocks
+(
+    //hex (0 17 18 1 2 21 22 3) ($mL0 $mW1 $mH3) simpleGrading (1 1 1)
+    
+    //hex (0 24 25 1 4 28 29 5) ($mL1 $mW0 $mH0) simpleGrading (1 1 1.60)
+    hex (0 18 19 1 3 21 22 4) ($mL1 $mW1 $mH0) simpleGrading (1 1 1.60)
+    hex (1 19 20 2 4 22 23 5) ($mL1 $mW2 $mH0) simpleGrading (1 1 1.60)
+    
+    
+    //hex (4 28 29 5 8 32 33 9) ($mL1 $mW0 $mH1) simpleGrading (1 1 1)
+    hex (3 21 22 4 6 24 25 7) ($mL1 $mW1 $mH1) simpleGrading (1 1 1)
+    hex (4 22 23 5 7 25 26 8) ($mL1 $mW2 $mH1) simpleGrading (1 1 1)
+     
+    //hex (8 32 33 9 12 36 37 13) ($mL1 $mW0 $mH2) simpleGrading (1 1 1)
+    hex (6 24 25 7 9 27 28 10) ($mL1 $mW1 $mH2) simpleGrading (1 1 1)
+    hex (7 25 26 8 10 28 29 11) ($mL1 $mW2 $mH2) simpleGrading (1 1 1)
+    //hex (6 24 25 7 9 27 28 10) ($mL1 $mW1 $mH2) simpleGrading ((0.5 0.5 2) (0.5 0.5 0.5))
+    //hex (7 25 26 8 10 28 29 11) ($mL1 $mW2 $mH2) simpleGrading ((0.5 0.5 2) (0.5 0.5 0.5))
+    
+    //hex (12 36 37 13 16 40 41 17) ($mL1 $mW0 $mH3) simpleGrading (1 1 1)
+    hex (9 27 28 10 12 30 31 13) ($mL1 $mW1 $mH3) simpleGrading (1 1 1)
+    hex (10 28 29 11 13 31 32 14) ($mL1 $mW2 $mH3) simpleGrading (1 1 1)
+    
+    //hex (16 40 41 17 20 44 45 21) ($mL1 $mW0 $mH4) simpleGrading (1 1 0.625)
+    hex (12 30 31 13 15 33 34 16) ($mL1 $mW1 $mH4) simpleGrading (1 1 0.625)
+    hex (13 31 32 14 16 34 35 17) ($mL1 $mW2 $mH4) simpleGrading (1 1 0.625)
+    
+    //hex (33 52 53 34 37 54 55 38) ($mL2 $mW1 $mH1) simpleGrading (1 1 1)
+    
+    // inlet
+    hex (36 9 10 37 38 12 13 39) ($mL0 $mW1 $mH3) simpleGrading (1 1 1)
+    
+    // outlet
+    hex (21 40 41 22 24 42 43 25) ($mL2 $mW1 $mH1) simpleGrading (1 1 1)
+    
+    
+);
+
+edges
+(
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        (
+            //(9 12 13 10)
+            (36 38 39 37)
+        );
+    }
+    
+    outlet
+    {
+        type patch;
+        faces
+        (
+            //(21 22 25 24)
+            (43 42 40 41)
+        );
+    }
+    
+    leftWalls
+    {
+        type wall;
+        faces
+        (
+            (0 3 4 1)
+            (1 4 5 2)
+            
+            (3 6 7 4)
+            (4 7 8 5)
+            
+            (6 9 10 7)
+            (7 10 11 8)
+            
+            //()
+            (10 13 14 11)
+            
+            (12 15 16 13)
+            (13 16 17 14)
+            
+            // inlet
+            (38 12 13 39)
+            (39 13 10 37)
+            (37 10 9 36)
+            
+        );
+    }
+    
+    middleWalls
+    {
+        type wall;
+        faces
+        (
+            // top
+            (15 33 34 16)
+            (16 34 35 17)
+            
+            // bottom
+            (0 1 19 18)
+            (1 2 20 19)
+            
+            // front
+            
+            // back
+            (17 35 32 14)
+            (14 32 29 11)
+            (11 29 26 8)
+            (8 26 23 5)
+            (5 23 20 2)
+        );
+    }
+    
+    rightWalls
+    {
+        type wall;
+        faces
+        (
+            (22 21 18 19)
+            (23 22 19 20)
+            
+            //()
+            (26 25 22 23)
+            
+            (28 27 24 25)
+            (29 28 25 26)
+            
+            (31 30 27 28)
+            (32 31 28 29)
+            
+            (34 33 30 31)
+            (35 34 31 32)
+            
+            // outlet
+            
+            (24 42 43 25)
+            (25 43 41 22)
+            (22 41 40 21)
+        );
+    }
+    
+    front
+    {
+        type symmetryPlane;
+        faces
+        (
+            (15 12 30 33)
+            (12 9 27 30)
+            (9 6 24 27)
+            (6 3 21 24)
+            (3 0 18 21)
+            // in
+            (12 38 36 9)
+            // out
+            (24 21 40 42)
+        );
+    }
+   
+);
+
+
+// ************************************************************************* //

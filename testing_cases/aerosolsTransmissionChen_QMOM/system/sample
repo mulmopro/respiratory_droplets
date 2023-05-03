@@ -1,0 +1,64 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    location        "system";
+    object          sample;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+type sets;
+libs            (sampling);
+
+interpolationScheme cellPointFace;
+
+setFormat csv;
+
+fields
+(
+    U.gas
+    U.liquid
+    U.liquid.0
+    U.liquid.1
+    alpha.gas
+    alpha.liquid
+    moment.0.liquid
+);
+
+sets
+(
+    x02
+    {
+        type            face;
+        axis            xyz;
+        start   (0.2 0.0 -1.0);
+        end     (0.2 0.0 1.0);
+    }
+    x04
+    {
+        type            face;
+        axis            xyz;
+        start   (0.4 0.0 -1.0);
+        end     (0.4 0.0 1.0);
+    }
+    x06
+    {
+        type            face;
+        axis            xyz;
+        start   (0.6 0.0 -1.0);
+        end     (0.6 0.0 1.0);
+    }
+    
+);
+
+
+// ************************************************************************* //

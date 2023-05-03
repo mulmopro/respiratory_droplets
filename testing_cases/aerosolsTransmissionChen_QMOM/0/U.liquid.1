@@ -1,0 +1,71 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volVectorField;
+    location    "0.0001";
+    object      U.liquid.1;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform (0.225 0 0);
+        /*
+        type                uniformFixedValue;
+        uniformValue  tableFile;
+        uniformValueCoeffs
+        {
+            file                "$FOAM_CASE/sneezeVelocity";    // name of data file
+            format              foam;        // data format (optional)
+            outOfBounds         clamp;       // optional out-of-bounds handling
+            interpolationScheme linear;      // optional interpolation method
+            //nHeaderLine         0;          // number of header lines
+	    //refColumn           0;          // reference column index
+	    //componentColumns    1;    // component column indices
+            //separator           ",";        // optional (defaults to ",")
+	     //mergeSeparators     no;         // merge multiple separators
+        }
+        */
+    }
+    outlet
+    {
+        type            pressureInletOutletVelocity;
+        phi             phi.liquid;
+        value           $internalField;
+    }
+    leftWalls
+    {
+        type            noSlip;
+    }
+    middleWalls
+    {
+        type            noSlip;
+    }
+    rightWalls
+    {
+        type            noSlip;
+    }
+    front
+    {
+        type            symmetryPlane;
+    }
+}
+
+
+// ************************************************************************* //

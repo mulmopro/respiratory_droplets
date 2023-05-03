@@ -1,0 +1,207 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      phaseProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+//type twoResistanceTwoPhaseSystem;
+//type oneResistanceTwoPhaseSystem;
+//type interfaceCompositionTwoPhaseSystem;
+type polyQMOMInterfaceCompositionTwoPhaseSystem;
+phases (liquid gas);
+
+nInterfaceCorrectors 1;
+
+liquid
+{
+    //type            twoWayPBESMDLimitedDBasedRePurePhaseModel;
+    //type            oneWayPBEPurePhaseModel;
+    type            myEvapULPNormDBCoBCPolydispersePurePhaseModel;
+    residualAlpha   1e-10;
+    d               1.00004E-05;
+    minD            1e-6;
+    maxD            1e-3;
+    //minM3           1e-8;
+    W               1.0;
+    Xi              1.0;
+}
+
+gas
+{
+    type            continuousMultiComponentPhaseModel;
+    //type            continuousPurePhaseModel;
+    residualAlpha   1e-6;
+    d               1;
+    Sct             0.7;
+}
+
+pMin    1e3;
+pMax    1e7;
+
+blending
+{
+    default
+    {
+        type               none;
+        continuousPhase    gas;
+    }
+}
+
+sigma
+(
+    (gas and liquid)   0.07
+);
+
+aspectRatio
+(
+/*
+    (gas in liquid)
+    {
+        type            constant;
+        E0              1.0;
+    }
+
+    (liquid in gas)
+    {
+        type            constant;
+        E0              1.0;
+    }
+*/
+);
+
+drag
+(
+    (liquid in gas)
+    {
+        type            SchillerNaumann;
+        residualRe      1e-3;
+        swarmCorrection
+        {
+            type        none;
+        }
+    }
+);
+
+
+turbulentDispersion
+(
+
+    (liquid in gas)
+    {
+        type                Burns;
+        sigma               0.7;
+    }
+
+);
+
+virtualMass
+(
+/*
+    (gas in liquid)
+    {
+        type            constantCoefficient;
+        Cvm             0.5;
+    }
+    (liquid in gas)
+    {
+        type            constantCoefficient;
+        Cvm             0.5;
+    }
+*/
+);
+/*
+heatTransfer
+(
+    (liquid in gas)
+    {
+        type            RanzMarshall;
+        residualRe             1e-6;
+    }
+);
+*/
+
+heatTransfer.gas
+(
+    (liquid in gas)
+    {
+        type            RanzMarshall;
+        residualRe             1e-6;
+    }
+);
+
+heatTransfer.liquid
+(
+    (liquid in gas)
+    {
+        type            spherical;
+        residualRe             1e-6;
+    }
+);
+
+massTransfer.gas
+(
+    (liquid in gas)
+    {
+        type limitedFrossling;
+        Le 2.0;
+        dmin 1e-3;
+    }
+);
+
+
+interfaceComposition.gas
+(
+    (liquid in gas)
+    {
+        type saturated;
+        species ( H2O );
+        Le 2.0;
+        saturationPressure
+        {
+            //type ArdenBuck;
+            type Antoine;
+            A      23.952;
+            B     -4233.7;
+            C     -31.737;
+        }   
+    }
+);
+
+lift
+(
+/*
+    (gas in liquid)
+    {
+        type            Tomiyama;
+    }
+*/
+);
+
+wallLubrication
+(
+/*
+    (gas in liquid)
+    {
+        type            Antal;
+        Cw1             -0.01;
+        Cw2             0.05;
+        Cwc             10.0;
+        Cwd             6.8;
+        p               1.7;
+    }
+*/
+);
+
+bubblePressure
+(
+);

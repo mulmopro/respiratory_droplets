@@ -1,0 +1,88 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      populationaBalanceProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+populationBalanceModel univariateEScaleMyMultiDiv;
+univariateEScaleMyMultiDivCoeffs
+{
+ode off;
+
+coalescence off;
+
+coalescenceKernel
+{
+    frequency CoulaloglouAndTavlarides;
+    efficiency CoulaloglouAndTavlarides;
+
+    Ca      Ca      [ 0 0 0 0 0 0 0 ]  0.88;
+    Ceff    Ceff    [ 0 0 0 0 0 0 0 ]  6.0e9;
+    ReExp   ReExp   [ 0 0 0 0 0 0 0 ]  -0.732;
+    WeExp   WeExp   [ 0 0 0 0 0 0 0 ]  0.317;
+
+    continuousPhase gas;
+}
+
+breakup off;
+
+breakupKernel
+{
+    breakupKernel Alopaeus;
+    Cb        Cb        [ 0 0 -1 0 0 0 0 ] 6.0;
+
+    daughterDistribution
+    {
+        daughterDistribution uniform;
+    }
+}
+
+evaporation on;
+
+evaporationModel
+{
+    evaporationModel uniformThermal;
+    minAbscissa      1e-6;
+    Cg               1e-4;
+}
+
+diffusion off;
+
+    diffusionModel
+    {
+        diffusionModel  none;
+    }
+  /*  
+    diffusionModel
+    {
+        //diffusionModel  none;
+        
+        diffusionModel  turbulentDiffusion;
+        gammaLam        gammaLam    [ 0 2 -1 0 0 0 0 ] 0.0001;
+        Sc              0.7;
+        continuousPhase  gas;
+    }
+*/
+odeCoeffs
+{
+    ATol    1.0e-6;
+    RTol    1.0e-4;
+    fac     0.9;
+    facMin  0.1;
+    facMax  2.0;
+    minLocalDt 1.0e-10;
+}
+}
+
+// ************************************************************************* //

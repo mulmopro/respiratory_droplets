@@ -1,0 +1,117 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default         Euler;
+}
+
+gradSchemes
+{
+    default         cellLimited     leastSquares 0.2;
+    grad(p_rgh)     leastSquares;
+}
+
+divSchemes
+{
+    default                         none;
+    /*
+    div(phi,alpha.liquid)              Gauss vanLeer;
+    div(phir,alpha.liquid)             Gauss vanLeer;
+    div(phi,alpha.gas)            Gauss vanLeer;
+    "div\(phir,alpha.*,alpha.*\)"   Gauss vanLeer;
+    
+    "div\(alphaRhoPhi.*,Yi\)"       Gauss limitedLinear 1;
+
+    "div\(alphaRhoPhi.*,U.*\)"      Gauss limitedLinearV 1;
+    "div\(phi.*,U.*\)"              Gauss limitedLinearV 1;
+    "div\(phi.liquid,moment.*\)"       Gauss upwind;
+
+    "div\(alphaRhoPhi.*,(h|e).*\)"  Gauss limitedLinear 1;
+    "div\(alphaRhoPhi.*,K.*\)"      Gauss limitedLinear 1;
+    "div\(alphaPhi.*,p\)"           Gauss limitedLinear 1;
+
+    "div\(alphaRhoPhi.*,(k|epsilon).*\)"  Gauss limitedLinear 1;
+    "div\(phim,(k|epsilon)m\)"      Gauss limitedLinear 1;
+
+    div(devRhoReff.gas)           Gauss linear;
+
+    "div\(\(\(\(alpha.*\*thermo:rho.*\)\*nuEff.*\)\*dev2\(T\(grad\(U.*\)\)\)\)\)" Gauss linear;
+
+    div((((alpha.liquid*rho.liquid)*nu.liquid)*dev2(T(grad(U.liquid))))) Gauss linear;
+    */
+
+    div(phi,alpha.liquid)              Gauss upwind;
+    div(phir,alpha.liquid)             Gauss upwind;
+    div(phi,alpha.gas)            Gauss upwind;
+    "div\(phir,alpha.*,alpha.*\)"   Gauss upwind;
+    
+    "div\(alphaRhoPhi.*,Yi\)"       Gauss upwind;
+
+    "div\(alphaRhoPhi.*,U.*\)"      Gauss upwind;
+    "div\(phi.*,U.*\)"              Gauss upwind;
+    div(phi.dispersed,moments) Gauss multivariateIndependent
+    {
+       "moment.*"    upwind;
+    };
+
+    "div\(alphaRhoPhi.*,(h|e).*\)"  Gauss upwind;
+    "div\(alphaRhoPhi.*,K.*\)"      Gauss upwind;
+    "div\(alphaPhi.*,p\)"           Gauss upwind;
+
+    "div\(alphaRhoPhi.*,(k|epsilon).*\)"  Gauss upwind;
+    "div\(phim,(k|epsilon)m\)"      Gauss upwind;
+
+    div(devRhoReff.gas)           Gauss linear;
+
+    "div\(\(\(\(alpha.*\*thermo:rho.*\)\*nuEff.*\)\*dev2\(T\(grad\(U.*\)\)\)\)\)" Gauss linear;
+
+    div((((alpha.liquid*rho.liquid)*nu.liquid)*dev2(T(grad(U.liquid))))) Gauss linear;
+    
+}
+
+laplacianSchemes
+{
+    default         Gauss linear uncorrected;
+    laplacian(moment.1.liquid,corr)    Gauss linear limited 1.0;
+}
+
+interpolationSchemes
+{
+    default         linear;
+
+    "interpolate\(moment.*\)" upwind phi.liquid;
+
+    reconstruct(U)          upwind;
+    reconstruct(weight)     upwind;
+    reconstruct(abscissa)   upwind;
+}
+
+snGradSchemes
+{
+    default         uncorrected;
+    snGrad(corr)    limited     1.0;
+}
+
+wallDist
+{
+    method meshWave;
+    nRequired yes;
+}
+
+
+// ************************************************************************* //
