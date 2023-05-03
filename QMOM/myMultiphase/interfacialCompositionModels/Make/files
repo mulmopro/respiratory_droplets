@@ -1,0 +1,20 @@
+composition = interfaceCompositionModels
+$(composition)/interfaceCompositionModel_1/interfaceCompositionModel.C
+$(composition)/InterfaceCompositionModel/InterfaceCompositionModels.C
+
+massTransfer = massTransferModels
+$(massTransfer)/massTransferModel/massTransferModel.C
+$(massTransfer)/Frossling/Frossling.C
+$(massTransfer)/limitedFrossling/limitedFrossling.C
+$(massTransfer)/sphericalMassTransfer/sphericalMassTransfer.C
+
+saturation = saturationModels
+$(saturation)/saturationModel/saturationModel.C
+$(saturation)/Antoine/Antoine.C
+$(saturation)/AntoineExtended/AntoineExtended.C
+$(saturation)/ArdenBuck/ArdenBuck.C
+$(saturation)/polynomial/polynomial.C
+$(saturation)/function1/function1.C
+$(saturation)/constantSaturationConditions/constantSaturationConditions.C
+
+LIB = $(FOAM_MODULE_LIBBIN)/libmyPdEulerianInterfacialCompositionModels

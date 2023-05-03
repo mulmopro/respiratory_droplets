@@ -1,0 +1,3 @@
+polydisperseDropletNOIFoam.C
+
+EXE = $(FOAM_MODULE_APPBIN)/polydisperseDropletNOIFoam

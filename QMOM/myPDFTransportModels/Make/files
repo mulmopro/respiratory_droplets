@@ -1,0 +1,8 @@
+PDFTransportModel/PDFTransportModel.C
+univariatePDFTransportModel/univariatePDFTransportModel.C
+univariateMyDivPDFTransportModel/univariateMyDivPDFTransportModel.C
+univariateMyMultiDivPDFTransportModel/univariateMyMultiDivPDFTransportModel.C
+univariateMyTestPDFTransportModel/univariateMyTestPDFTransportModel.C
+velocityPDFTransportModel/velocityPDFTransportModel.C
+
+LIB = $(FOAM_MODULE_LIBBIN)/libmyPDFTransportModel
