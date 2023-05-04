@@ -10,9 +10,11 @@ These are the mono-solver and poly-solver using quadrature based moment method (
 ## Installation
 
 + Install OpenFOAM v2106 and OpenQBMM v7 first
++ Copy the folder `quadratureApproximations` to the folder `OpenQBMM_7.0.0/src/quadratureMethods`, select merge to merge the new folder with the origianl one and select replace to replace the file `file` located in folder `Make`
 + Copy the folder `myMultiphase` to the folder `OpenQBMM_7.0.0/applications/solvers`
 + Copy the folders `myPDFTransportModels` and `myPopulationBalanceModels` to the folder `OpenQBMM_7.0.0/src/quadratureMethods`
-+ Use `wmake` to compile first in folder `myPDFTransportModels`
++ Use `wmake` to compile first in folder `quadratureApproximations`
++ Use `wmake` to compile secondly in folder `myPDFTransportModels`
 + Use `wmake` to compile then in folder `myPopulationBalanceModels`
 + Use `Allwmake` to compile in folder `myMultiphase`
 + Modify the following file `myMultiphase\twoPhaseSystem\phaseModels\phaseModel\phaseModels.C`: delete the commenting symbols `/*` at line 96 and `*/` at line 172
