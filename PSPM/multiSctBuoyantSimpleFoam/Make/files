@@ -1,0 +1,3 @@
+multiSctBuoyantSimpleFoam.C
+
+EXE = $(FOAM_APPBIN)/multiSctBuoyantSimpleFoam
