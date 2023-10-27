@@ -22,7 +22,7 @@ decomposePar
 mpirun -np 8 buoyantSimpleCFoam -parallel > log.buoyantSimpleCFoam
 ```
 
-+ post-process the results to obtain velocity (U), temperature (T), and CO2 concentration (CO2) along the sampling lines
++ post-process the results to obtain velocity (U), temperature (T), and particle concentration (C) along the sampling lines
 
 ```
 reconstructPar
