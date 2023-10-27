@@ -1,0 +1,80 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 298.15;
+
+boundaryField
+{   
+    inlet
+    {
+        type		fixedValue;
+        value 		uniform 285.75;
+    }
+    
+    wall_bottom
+    {
+        type            fixedValue;
+        value           uniform 296.15;
+    }
+
+    "(wall_.*|closet|desk|monitor)"
+    {
+        type            zeroGradient;
+        value           $internalField;
+    }
+    
+    "fluorescent_.*"
+    {
+        type            externalWallHeatFluxTemperature;
+
+        mode            power;
+        Q               constant 72.0;
+        kappaMethod     fluidThermo;
+        value           $internalField;
+    }
+    
+    manikin
+    {
+        type            externalWallHeatFluxTemperature;
+
+        mode            power;
+        Q               constant 100.0;
+        kappaMethod     fluidThermo;
+        value           $internalField;
+    }
+    
+    unit
+    {
+        type            externalWallHeatFluxTemperature;
+
+        mode            power;
+        Q               constant 180.0;
+        kappaMethod     fluidThermo;
+        value           $internalField;
+    }
+    
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      $internalField;
+        value           $internalField;
+    }
+}
+
+
+// ************************************************************************* //

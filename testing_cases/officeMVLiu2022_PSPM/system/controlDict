@@ -1,0 +1,80 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     buoyantSimpleFoam;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+//endTime         20000;
+endTime         20000;
+
+deltaT          1;
+
+writeControl    adjustableRunTime;
+
+//writeInterval   5000;
+writeInterval   5000;
+
+writeFormat     ascii;
+
+writePrecision  16;
+
+writeCompression on;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+functions
+{
+	fileUpdate
+	{
+	    type              timeActivatedFileUpdate;
+	    libs              (utilityFunctionObjects);
+	    //writeControl      timeStep;
+	    //writeInterval     1;
+	    fileToUpdate      "$FOAM_CASE/system/fvSolution";
+	    timeVsFile
+	    (
+		(-1   "$FOAM_CASE/system/fvSolution1")
+		(200  "$FOAM_CASE/system/fvSolution2")
+		(400  "$FOAM_CASE/system/fvSolution3")
+		(600  "$FOAM_CASE/system/fvSolution4")
+	    );
+	}
+	
+	
+	solverInfo
+{
+    type            solverInfo;
+    libs            ("libutilityFunctionObjects.so");
+    
+    fields          (U p_rgh k epsilon);
+    writeResidualFields false;
+}
+
+//#includeFunc writeObjects(thermo:rho)
+//#includeFunc writeObjects(thermo:mu)
+}
+
+
+// ************************************************************************* //

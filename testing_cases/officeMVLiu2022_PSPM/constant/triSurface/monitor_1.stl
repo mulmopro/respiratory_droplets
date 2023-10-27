@@ -1,0 +1,86 @@
+solid solid
+ facet normal 0 -1 0
+  outer loop
+   vertex 2 3.075 0.78
+   vertex 3 3.075 1.13
+   vertex 2 3.075 1.13
+  endloop
+ endfacet
+ facet normal 0 -1 0
+  outer loop
+   vertex 2 3.075 0.78
+   vertex 3 3.075 0.78
+   vertex 3 3.075 1.13
+  endloop
+ endfacet
+ facet normal 0 0 1
+  outer loop
+   vertex 3 3.125 1.13
+   vertex 2 3.125 1.13
+   vertex 3 3.075 1.13
+  endloop
+ endfacet
+ facet normal 0 0 1
+  outer loop
+   vertex 3 3.075 1.13
+   vertex 2 3.125 1.13
+   vertex 2 3.075 1.13
+  endloop
+ endfacet
+ facet normal -1 0 0
+  outer loop
+   vertex 2 3.075 0.78
+   vertex 2 3.125 1.13
+   vertex 2 3.125 0.78
+  endloop
+ endfacet
+ facet normal -1 0 0
+  outer loop
+   vertex 2 3.075 0.78
+   vertex 2 3.075 1.13
+   vertex 2 3.125 1.13
+  endloop
+ endfacet
+ facet normal 1 0 0
+  outer loop
+   vertex 3 3.125 1.13
+   vertex 3 3.075 1.13
+   vertex 3 3.125 0.78
+  endloop
+ endfacet
+ facet normal 1 0 0
+  outer loop
+   vertex 3 3.075 1.13
+   vertex 3 3.075 0.78
+   vertex 3 3.125 0.78
+  endloop
+ endfacet
+ facet normal 0 1 0
+  outer loop
+   vertex 3 3.125 1.13
+   vertex 3 3.125 0.78
+   vertex 2 3.125 1.13
+  endloop
+ endfacet
+ facet normal 0 1 0
+  outer loop
+   vertex 3 3.125 0.78
+   vertex 2 3.125 0.78
+   vertex 2 3.125 1.13
+  endloop
+ endfacet
+ facet normal 0 0 -1
+  outer loop
+   vertex 2 3.075 0.78
+   vertex 2 3.125 0.78
+   vertex 3 3.125 0.78
+  endloop
+ endfacet
+ facet normal 0 0 -1
+  outer loop
+   vertex 2 3.075 0.78
+   vertex 3 3.125 0.78
+   vertex 3 3.075 0.78
+  endloop
+ endfacet
+endsolid solid

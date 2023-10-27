@@ -1,0 +1,558 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+castellatedMesh true;
+snap            true;
+addLayers       false;
+
+
+geometry
+{
+    //1
+    chair_1.stl
+    {
+        type triSurfaceMesh;
+        name chair_1;
+    }
+    //2
+    chair_2.stl
+    {
+        type triSurfaceMesh;
+        name chair_2;
+    }
+    //3
+    chair_3.stl
+    {
+        type triSurfaceMesh;
+        name chair_3;
+    }
+    //4
+    chair_4.stl
+    {
+        type triSurfaceMesh;
+        name chair_4;
+    }
+    
+    //1
+    computer_1.stl
+    {
+        type triSurfaceMesh;
+        name computer_1;
+    }
+    //2
+    computer_2.stl
+    {
+        type triSurfaceMesh;
+        name computer_2;
+    }
+    //3
+    computer_3.stl
+    {
+        type triSurfaceMesh;
+        name computer_3;
+    }
+    //4
+    computer_4.stl
+    {
+        type triSurfaceMesh;
+        name computer_4;
+    }
+    
+    //4
+    DV_inlet.stl
+    {
+        type triSurfaceMesh;
+        name DV_inlet;
+    }
+    
+    //4
+    emitter_inlet.stl
+    {
+        type triSurfaceMesh;
+        name emitter_inlet;
+    }
+    //3
+    fluorescent_1.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_1;
+    }
+    //4
+    fluorescent_2.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_2;
+    }
+    //5
+    fluorescent_3.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_3;
+    }
+    //3
+    fluorescent_4.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_4;
+    }
+    //4
+    fluorescent_5.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_5;
+    }
+    //5
+    fluorescent_6.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_6;
+    }
+    //3
+    fluorescent_7.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_7;
+    }
+    //4
+    fluorescent_8.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_8;
+    }
+    //5
+    fluorescent_9.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_9;
+    }
+    //5
+    fluorescent_10.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_10;
+    }
+    //6
+    manikin_1.stl
+    {
+        type triSurfaceMesh;
+        name manikin_1;
+    }
+    //7
+    manikin_2.stl
+    {
+        type triSurfaceMesh;
+        name manikin_2;
+    }
+    //7
+    manikin_3.stl
+    {
+        type triSurfaceMesh;
+        name manikin_3;
+    }
+    //7
+    manikin_4.stl
+    {
+        type triSurfaceMesh;
+        name manikin_4;
+    }
+    
+    //6
+    monitor_1.stl
+    {
+        type triSurfaceMesh;
+        name monitor_1;
+    }
+    //7
+    monitor_2.stl
+    {
+        type triSurfaceMesh;
+        name monitor_2;
+    }
+    //7
+    monitor_3.stl
+    {
+        type triSurfaceMesh;
+        name monitor_3;
+    }
+    //7
+    monitor_4.stl
+    {
+        type triSurfaceMesh;
+        name monitor_4;
+    }
+    //7
+    MV_inlet_1.stl
+    {
+        type triSurfaceMesh;
+        name MV_inlet_1;
+    }
+    
+    //7
+    MV_inlet_2.stl
+    {
+        type triSurfaceMesh;
+        name MV_inlet_2;
+    }
+    
+    //8
+    outlet.stl
+    {
+        type triSurfaceMesh;
+        name outlet;
+    }
+    //9
+    TV.stl
+    {
+        type triSurfaceMesh;
+        name TV;
+    }
+
+    //11
+    wall_back.stl
+    {
+        type triSurfaceMesh;
+        name wall_back;
+    }
+    //12
+    wall_bottom.stl
+    {
+        type triSurfaceMesh;
+        name wall_bottom;
+    }
+    //13
+    wall_closet.stl
+    {
+        type triSurfaceMesh;
+        name wall_closet;
+    }
+    //14
+    wall_DV.stl
+    {
+        type triSurfaceMesh;
+        name wall_DV;
+    }
+    //15
+    wall_DV_tube.stl
+    {
+        type triSurfaceMesh;
+        name wall_DV_tube;
+    }
+    //15
+    wall_emitter.stl
+    {
+        type triSurfaceMesh;
+        name wall_emitter;
+    }
+    //16
+    wall_front.stl
+    {
+        type triSurfaceMesh;
+        name wall_front;
+    }
+    //17
+    wall_left.stl
+    {
+        type triSurfaceMesh;
+        name wall_left;
+    }
+    //17
+    
+    wall_MV_barrier_1.stl
+    {
+        type triSurfaceMesh;
+        name wall_MV_barrier_1;
+    }
+    //17
+    wall_MV_barrier_2.stl
+    {
+        type triSurfaceMesh;
+        name wall_MV_barrier_2;
+    }
+    
+    wall_MV_diffuser_1.stl
+    {
+        type triSurfaceMesh;
+        name wall_MV_diffuser_1;
+    }
+    //17
+    wall_MV_diffuser_2.stl
+    {
+        type triSurfaceMesh;
+        name wall_MV_diffuser_2;
+    }
+    
+    
+    //17
+    wall_MV_inlet_1.stl
+    {
+        type triSurfaceMesh;
+        name wall_MV_inlet_1;
+    }
+    //17
+    wall_MV_inlet_2.stl
+    {
+        type triSurfaceMesh;
+        name wall_MV_inlet_2;
+    }
+    
+    //19
+    wall_right.stl
+    {
+        type triSurfaceMesh;
+        name wall_right;
+    }
+    //18
+    wall_table.stl
+    {
+        type triSurfaceMesh;
+        name wall_table;
+    }
+    //20
+    wall_top.stl
+    {
+        type triSurfaceMesh;
+        name wall_top;
+    }
+    
+    box_MV_inlet_1
+    {
+        type 	searchableBox;	// box
+        min (1.5 2.72 2.99);
+        max (1.86 3.08 3.40);
+        type 	searchableBox;	// box
+    }
+    
+    box_MV_inlet_2
+    {
+        type 	searchableBox;	// box
+        min (5.14 2.72 2.99);
+        max (5.50 3.08 3.40);
+        type 	searchableBox;	// box
+    }
+    
+    box_emitter
+    {
+        type 	searchableBox;	// box
+        min (2.53 3.49 1.10);
+        max (2.57 3.67 1.14);
+        type 	searchableBox;	// box
+    }
+    
+};
+
+castellatedMeshControls
+{
+    maxLocalCells       2000000;
+    maxGlobalCells      3000000;
+    minRefinementCells  10;
+    nCellsBetweenLevels 2;
+    maxLoadUnbalance    0.2;
+    allowFreeStandingZoneFaces true;
+    resolveFeatureAngle 30;
+    features
+    (
+        {file "chair_1.eMesh"; 	        level 1;}
+        {file "chair_2.eMesh"; 	        level 1;}
+        {file "chair_3.eMesh"; 	        level 1;}
+        {file "chair_4.eMesh"; 	        level 1;}
+        
+        {file "computer_1.eMesh"; 	        level 1;}
+        {file "computer_2.eMesh"; 	        level 1;}
+        {file "computer_3.eMesh"; 	        level 1;}
+        {file "computer_4.eMesh"; 	        level 1;}
+
+        {file "DV_inlet.eMesh"; 	    	level 1;}
+        {file "emitter_inlet.eMesh"; 	    	level 4;}
+
+        {file "fluorescent_1.eMesh"; 		level 1;}
+        {file "fluorescent_2.eMesh"; 		level 1;}
+        {file "fluorescent_3.eMesh"; 		level 1;}
+        {file "fluorescent_4.eMesh"; 		level 1;}
+        {file "fluorescent_5.eMesh"; 		level 1;}
+
+        {file "fluorescent_6.eMesh"; 		level 1;}
+        {file "fluorescent_7.eMesh"; 		level 1;}
+        {file "fluorescent_8.eMesh"; 		level 1;}
+        {file "fluorescent_9.eMesh"; 		level 1;}
+        {file "fluorescent_10.eMesh"; 	level 1;}
+
+        {file "manikin_1.eMesh"; 	    	level 1;}
+        {file "manikin_2.eMesh"; 	    	level 1;}
+        {file "manikin_3.eMesh"; 	    	level 1;}
+        {file "manikin_4.eMesh"; 	    	level 1;}
+        
+        {file "monitor_1.eMesh"; 	    	level 1;}
+        {file "monitor_2.eMesh"; 	    	level 1;}
+        {file "monitor_3.eMesh"; 	    	level 1;}
+        {file "monitor_4.eMesh"; 	    	level 1;}
+        
+        {file "MV_inlet_1.eMesh"; 	    	level 2;}
+        {file "MV_inlet_2.eMesh"; 	    	level 2;}
+
+        {file "outlet.eMesh"; 	        level 1;}
+
+        {file "TV.eMesh"; 	            	level 1;}
+
+        {file "wall_back.eMesh"; 	    	level 1;}
+        {file "wall_bottom.eMesh"; 	    	level 1;}
+        {file "wall_closet.eMesh"; 	    	level 2;}
+        {file "wall_DV.eMesh"; 	        level 1;}
+        {file "wall_DV_tube.eMesh"; 		level 1;}
+        
+        {file "wall_emitter.eMesh"; 		level 4;}
+
+        {file "wall_front.eMesh"; 	    level 1;}
+        {file "wall_left.eMesh"; 	    level 1;}
+        
+        {file "wall_MV_barrier_1.eMesh"; 	    level 3;}
+        {file "wall_MV_barrier_2.eMesh"; 	    level 3;}
+        {file "wall_MV_diffuser_1.eMesh"; 	    level 3;}
+        {file "wall_MV_diffuser_2.eMesh"; 	    level 3;}
+        {file "wall_MV_inlet_1.eMesh"; 	    level 2;}
+        {file "wall_MV_inlet_2.eMesh"; 	    level 2;}
+        
+        {file "wall_right.eMesh"; 	    level 1;}
+        {file "wall_table.eMesh"; 	    level 1;}
+        {file "wall_top.eMesh"; 	    level 1;}  
+    );
+
+    refinementSurfaces
+    {
+        chair_1         {level (1 2);}
+        chair_2         {level (1 2);}
+        chair_3         {level (1 2);}
+        chair_4         {level (1 2);}
+        
+        computer_1         {level (2 2);}
+        computer_2         {level (2 2);}
+        computer_3         {level (2 2);}
+        computer_4         {level (2 2);}
+
+        DV_inlet        {level (1 1);}
+        
+        emitter_inlet        {level (4 4);}
+
+        fluorescent_1   {level (1 1);}
+        fluorescent_2   {level (1 1);}
+        fluorescent_3   {level (1 1);}
+        fluorescent_4   {level (1 1);}
+        fluorescent_5   {level (1 1);}
+
+        fluorescent_6   {level (1 1);}
+        fluorescent_7   {level (1 1);}
+        fluorescent_8   {level (1 1);}
+        fluorescent_9   {level (1 1);}
+        fluorescent_10  {level (1 1);}
+
+        manikin_1       {level (2 2);}
+        manikin_2       {level (2 2);}
+        manikin_3       {level (2 2);}
+        manikin_4       {level (2 2);}
+        
+        monitor_1       {level (2 2);}
+        monitor_2       {level (2 2);}
+        monitor_3       {level (2 2);}
+        monitor_4       {level (2 2);}
+        
+        MV_inlet_1      {level (2 2);}
+        MV_inlet_2      {level (2 2);}
+
+        outlet          {level (1 1);}
+
+        TV              {level (2 2);}
+
+        wall_back       {level (1 1);}
+        wall_bottom     {level (1 1);}
+        wall_closet     {level (1 2);}
+        wall_DV         {level (1 1);}
+        wall_DV_tube    {level (1 1);}
+        
+        wall_emitter    {level (3 4);}
+
+        wall_front      {level (1 1);}
+        wall_left       {level (1 1);}
+        
+        wall_MV_barrier_1       {level (3 3);}
+        wall_MV_barrier_2       {level (3 3);}
+        wall_MV_diffuser_1       {level (3 3);}
+        wall_MV_diffuser_2       {level (3 3);}
+        wall_MV_inlet_1       {level (2 2);}
+        wall_MV_inlet_2       {level (2 2);}
+        
+        wall_right      {level (1 1);}
+        wall_table      {level (1 2);}
+        wall_top        {level (1 2);}
+    }
+
+    refinementRegions
+    {
+        box_emitter
+        {
+            mode inside;
+            levels ((3 4));
+        }
+        box_MV_inlet_1
+        {
+            mode inside;
+            levels ((2 3));
+        }
+        box_MV_inlet_2
+        {
+            mode inside;
+            levels ((2 3));
+        }
+    
+    }
+
+    locationInMesh ( 0.1 0.1 0.1 ) ;
+}
+
+snapControls
+{
+    tolerance       2;
+    implicitFeatureSnap false;
+    explicitFeatureSnap true;
+    multiRegionFeatureSnap true;
+    detectNearSurfacesSnap true;
+    nSmoothPatch    3;
+    nSolveIter      100;
+    nRelaxIter      5;
+    nFeatureSnapIter    30;
+}
+
+addLayersControls
+{
+}
+
+// Generic mesh quality settings. At any undoable phase these determine
+// where to undo.
+meshQualityControls
+{
+    #include "meshQualityDict"
+
+
+    // Advanced
+
+    //- Number of error distribution iterations
+    nSmoothScale 4;
+    //- Amount to scale back displacement at error points
+    errorReduction 0.75;
+}
+
+mergeTolerance  1e-06;
+
+
+// ************************************************************************* //

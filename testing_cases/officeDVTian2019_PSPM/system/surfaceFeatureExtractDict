@@ -1,0 +1,251 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    object          surfaceFeatureExtractDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+/*
+simpleCar.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+*/
+
+closet.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+desk.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+fluorescent_1.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+fluorescent_2.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+fluorescent_3.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+inlet.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+manikin.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+monitor.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+outlet.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+unit.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+wall_back.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+wall_bottom.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+wall_fluorescent_1.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+wall_fluorescent_2.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+wall_fluorescent_3.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+wall_front.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+wall_left.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+wall_outlet.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+wall_right.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+wall_top.stl
+{
+    extractionMethod extractFromSurface;
+    writeObj        yes;
+
+    extractFromSurfaceCoeffs
+    {
+        includedAngle   150;
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,252 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+castellatedMesh true;
+snap            true;
+addLayers       false;
+
+
+geometry
+{
+    //1
+    closet.stl
+    {
+        type triSurfaceMesh;
+        name closet;
+    }
+    //2
+    desk.stl
+    {
+        type triSurfaceMesh;
+        name desk;
+    }
+    //3
+    fluorescent_1.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_1;
+    }
+    //4
+    fluorescent_2.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_2;
+    }
+    //5
+    fluorescent_3.stl
+    {
+        type triSurfaceMesh;
+        name fluorescent_3;
+    }
+    //6
+    inlet.stl
+    {
+        type triSurfaceMesh;
+        name inlet;
+    }
+    //7
+    manikin.stl
+    {
+        type triSurfaceMesh;
+        name manikin;
+    }
+    //8
+    monitor.stl
+    {
+        type triSurfaceMesh;
+        name monitor;
+    }
+    //9
+    outlet.stl
+    {
+        type triSurfaceMesh;
+        name outlet;
+    }
+    //10
+    unit.stl
+    {
+        type triSurfaceMesh;
+        name unit;
+    }
+    //11
+    wall_back.stl
+    {
+        type triSurfaceMesh;
+        name wall_back;
+    }
+    //12
+    wall_bottom.stl
+    {
+        type triSurfaceMesh;
+        name wall_bottom;
+    }
+    //13
+    wall_fluorescent_1.stl
+    {
+        type triSurfaceMesh;
+        name wall_fluorescent_1;
+    }
+    //14
+    wall_fluorescent_2.stl
+    {
+        type triSurfaceMesh;
+        name wall_fluorescent_2;
+    }
+    //15
+    wall_fluorescent_3.stl
+    {
+        type triSurfaceMesh;
+        name wall_fluorescent_3;
+    }
+    //16
+    wall_front.stl
+    {
+        type triSurfaceMesh;
+        name wall_front;
+    }
+    //17
+    wall_left.stl
+    {
+        type triSurfaceMesh;
+        name wall_left;
+    }
+    //18
+    wall_outlet.stl
+    {
+        type triSurfaceMesh;
+        name wall_outlet;
+    }
+    //19
+    wall_right.stl
+    {
+        type triSurfaceMesh;
+        name wall_right;
+    }
+    //20
+    wall_top.stl
+    {
+        type triSurfaceMesh;
+        name wall_top;
+    }
+};
+
+castellatedMeshControls
+{
+    maxLocalCells       2000000;
+    maxGlobalCells      3000000;
+    minRefinementCells  10;
+    nCellsBetweenLevels 2;
+    maxLoadUnbalance    0.2;
+    allowFreeStandingZoneFaces true;
+    resolveFeatureAngle 30;
+    features
+    (
+        {file "closet.eMesh"; 	level 1;}
+        {file "desk.eMesh"; 		level 1;}
+        {file "fluorescent_1.eMesh"; 	level 1;}
+        {file "fluorescent_2.eMesh"; 	level 1;}
+        {file "fluorescent_3.eMesh"; 	level 1;}
+        
+        {file "inlet.eMesh"; 		level 1;}
+        {file "manikin.eMesh"; 	level 1;}
+        {file "monitor.eMesh"; 	level 1;}
+        {file "outlet.eMesh"; 	level 1;}
+        {file "unit.eMesh"; 		level 1;}
+        
+        {file "wall_back.eMesh"; 	level 1;}
+        {file "wall_bottom.eMesh"; 	level 1;}
+        {file "wall_fluorescent_1.eMesh"; level 1;}
+        {file "wall_fluorescent_2.eMesh"; level 1;}
+        {file "wall_fluorescent_3.eMesh"; level 1;}
+        
+        {file "wall_front.eMesh"; 	level 1;}
+        {file "wall_left.eMesh"; 	level 1;}
+        {file "wall_outlet.eMesh"; 	level 1;}
+        {file "wall_right.eMesh"; 	level 1;}
+        {file "wall_top.eMesh"; 	level 1;}   
+    );
+
+    refinementSurfaces
+    {
+        closet 	{level (0 1);}
+        desk	 	{level (1 2);}
+        fluorescent_1	{level (2 3);}
+        fluorescent_2	{level (2 3);}
+        fluorescent_3	{level (2 3);}
+        
+        inlet		{level (1 2);}
+        manikin	{level (2 3);}
+        monitor	{level (1 2);}
+        outlet		{level (0 1);}
+        unit		{level (2 3);}
+        
+        wall_back	{level (0 1);}
+        wall_bottom	{level (1 2);}
+        wall_fluorescent_1 {level (2 3);}
+        wall_fluorescent_2 {level (2 3);}
+        wall_fluorescent_3 {level (2 3);}
+        
+        wall_front	{level (0 1);}
+        wall_left	{level (0 1);}
+        wall_outlet	{level (0 1);}
+        wall_right	{level (0 1);}
+        wall_top	{level (0 1);}
+        
+    }
+
+    refinementRegions
+    {
+    }
+
+    locationInMesh ( 0.5 0.5 0.5 ) ;
+}
+
+snapControls
+{
+    tolerance       2;
+    implicitFeatureSnap false;
+    explicitFeatureSnap true;
+    multiRegionFeatureSnap true;
+    detectNearSurfacesSnap true;
+    nSmoothPatch    3;
+    nSolveIter      100;
+    nRelaxIter      5;
+    nFeatureSnapIter    20;
+}
+
+addLayersControls
+{
+}
+
+// Generic mesh quality settings. At any undoable phase these determine
+// where to undo.
+meshQualityControls
+{
+    #include "meshQualityDict"
+
+
+    // Advanced
+
+    //- Number of error distribution iterations
+    nSmoothScale 4;
+    //- Amount to scale back displacement at error points
+    errorReduction 0.75;
+}
+
+mergeTolerance  1e-06;
+
+
+// ************************************************************************* //

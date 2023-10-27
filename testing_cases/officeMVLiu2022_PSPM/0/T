@@ -1,0 +1,200 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 296.55;
+
+boundaryField
+{   
+    DV_inlet
+    {
+        type        zeroGradient;
+    }
+    
+    emitter_inlet
+    {
+        type		fixedValue;
+        value 		uniform 296.55;
+    }
+    
+    MV_inlet_1
+    {
+        type        fixedValue;
+        value       uniform 286.05;
+    }
+    MV_inlet_2
+    {
+        type        fixedValue;
+        value       uniform 285.65;
+    }
+    
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      $internalField;
+        value           $internalField;
+    }
+    
+    //"(chair_.*|computer_.*|fluorescent_.*|manikin_.*|monitor_.*|TV|wall_.*)"
+
+    "(chair_.*)"
+    {
+        type            zeroGradient;
+        value           $internalField;
+    }
+    
+    "computer_.*"
+    {
+        type        fixedValue;
+        value         uniform 306.15;
+    }
+    
+    "fluorescent_.*"
+    {
+    /*
+        type            externalWallHeatFluxTemperature;
+
+        mode            power;
+        Q               constant 64.0;
+        kappaMethod     fluidThermo;
+        value           $internalField;
+    */
+        type        fixedValue;
+        value         uniform 320;
+    }
+    
+    "manikin_.*"
+    {
+        
+        type            externalWallHeatFluxTemperature;
+
+        mode            power;
+        Q               constant 80.0;
+        kappaMethod     fluidThermo;
+        value           $internalField;
+        /*
+        type        fixedValue;
+        value         uniform 314; 
+        */
+    }
+    
+    "monitor_.*"
+    {
+        type        fixedValue;
+        value         uniform 302.75;
+    }
+
+    TV
+    {
+        type        fixedValue;
+        value         uniform 303.35;
+    }
+    /*
+    "wall_.*"
+    {
+        type        fixedValue;
+        value         uniform 298.15;
+    }
+    */
+    
+    wall_back
+    {
+        type        fixedValue;
+        value         uniform 298.75;
+    }
+    wall_bottom
+    {
+        type        fixedValue;
+        value       uniform 297.15;
+    }
+    wall_closet
+    {
+        type        zeroGradient;
+    }
+    wall_DV
+    {
+        type        zeroGradient;
+    }
+    wall_DV_tube
+    {
+        type        zeroGradient;
+    }
+    wall_emitter
+    {
+        type        zeroGradient;
+    }
+    wall_front
+    {
+        type        fixedValue;
+        value       uniform 298.15;
+    }
+    wall_left
+    {
+        type        fixedValue;
+        value       uniform 298.15;
+    }
+    
+    wall_MV_barrier_1
+    {
+        type        zeroGradient;
+    }
+    wall_MV_barrier_2
+    {
+        type        zeroGradient;
+    }
+    
+    wall_MV_diffuser_1
+    {
+        type        zeroGradient;
+    }
+    wall_MV_diffuser_2
+    {
+        type        zeroGradient;
+    }
+    
+    wall_MV_inlet_1
+    {
+        type        zeroGradient;
+        //type        fixedValue;
+        //value       uniform 286.05;
+    }
+    wall_MV_inlet_2
+    {
+        type        zeroGradient;
+        //type        fixedValue;
+        //value       uniform 286.05;
+    }
+    wall_right
+    {
+        type        fixedValue;
+        value       uniform 298.35;
+    }
+    wall_table
+    {
+        type        zeroGradient;
+    }
+    wall_top
+    {
+        //type        zeroGradient;
+        type        fixedValue;
+        value       uniform 294.15;
+    }
+    
+}
+
+
+// ************************************************************************* //

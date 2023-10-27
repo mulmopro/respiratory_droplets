@@ -1,0 +1,64 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0. 0. 0.);
+
+boundaryField
+{
+    DV_inlet
+    {
+        //type            noSlip;
+        //value           $internalField;
+        type         fixedValue;
+        value        uniform (0.0 0.0 0.0);
+    }
+    
+    "MV_inlet_.*"
+    {
+        type                flowRateInletVelocity;
+        volumetricFlowRate  0.0616;
+        value               uniform (0 0 0);
+        //type         fixedValue;
+        //value        uniform (0.0 0.0 -2.74);
+    }
+    
+    emitter_inlet
+    {
+        type		fixedValue;
+        //value		uniform (0.0 -1.58 0.0);
+        //value		uniform (0.0 -0.125 0.0);
+        value		uniform (0.0 -1.58 0.0);
+    }
+
+    "(chair_.*|computer_.*|fluorescent_.*|manikin_.*|monitor_.*|TV|wall_.*)"
+    {
+        //type            noSlip;
+        //value           $internalField;
+        type         fixedValue;
+        value        uniform (0.0 0.0 0.0);
+    }
+
+    outlet
+    {
+        type            pressureInletOutletVelocity;
+        value           $internalField;
+    }
+}
+
+
+// ************************************************************************* //

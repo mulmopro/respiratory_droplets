@@ -18,7 +18,55 @@ These are the solvers using the pseudo-single phase model (PSPM) for the small-s
 
 ### buoyantSimpleCFoam
 
+Please find the setups in the testing case of transmission of tracer particles in an office under mixing ventilation in folder `testing_cases/officeMVLiu2022_PSPM`, and run the simulation as follows:
+
++ create mesh using `snappyHexMesh`
+```
+blockMesh
+surfaceFeatureExtract
+snnappyHexMesh -overwrite
+```
+
++ run simulation parallelly
+
+```
+decomposePar
+mpirun -np 8 buoyantSimpleCFoam -parallel > log.buoyantSimpleCFoam
+```
+
++ post-process the results to obtain velocity (U), temperature (T), and CO2 concentration (CO2) along the sampling lines
+
+```
+reconstructPar
+buoyantSimpleCFoam -postProcess -func "sample"
+```
+
 ### multiSctBuoyantSimpleFoam
+
+Please find the setups in the testing case of transmission of tracer gas in an office under dispalcement ventilation in folder `testing_cases/officeDVTian2019_PSPM`, and run the simulation as follows:
+
++ create mesh using `snappyHexMesh`
+```
+blockMesh
+surfaceFeatureExtract
+snnappyHexMesh -overwrite
+```
+
++ run simulation parallelly
+
+```
+decomposePar
+mpirun -np 8 multiSctBuoyantSimpleFoam -parallel > log.multiSctBuoyantSimpleFoam
+```
+
++ post-process the results to obtain velocity (U), temperature (T), and CO2 concentration (CO2) along the sampling lines
+
+```
+reconstructPar
+multiSctBuoyantSimpleFoam -postProcess -func "sample"
+```
+
+
 
 
 
